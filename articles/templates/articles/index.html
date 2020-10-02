@@ -1,0 +1,27 @@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>作者</th>
+            <th>標題</th>
+            <th>點擊次數</th>
+            <th>來源網站</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+        <tr>
+            <td><img src={{ article.avatar }} style="border-radius: 50%;" /></td>
+            <td>
+                {{ article.author }}
+            </td>
+            <td>
+                <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+            </td>
+            <td>{{ article.hit }}</td>
+            <td>{{ article.source }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
