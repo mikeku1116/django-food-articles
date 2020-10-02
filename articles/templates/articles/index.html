@@ -1,4 +1,8 @@
-
+<form action="" method="Post">
+    {% csrf_token %}
+    <input type="text" name="restaurant_name" placeholder="請輸入餐廳名稱">
+    <input type="submit" value="查詢">
+</form>
 <table class="table">
     <thead>
         <tr>
