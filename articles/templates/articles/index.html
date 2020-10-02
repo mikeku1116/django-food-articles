@@ -1,31 +1,43 @@
-<form action="" method="Post">
-    {% csrf_token %}
-    <input type="text" name="restaurant_name" placeholder="請輸入餐廳名稱">
-    <input type="submit" value="查詢">
-</form>
-<table class="table">
-    <thead>
-        <tr>
-            <th></th>
-            <th>作者</th>
-            <th>標題</th>
-            <th>點擊次數</th>
-            <th>來源網站</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for article in articles %}
-        <tr>
-            <td><img src={{ article.avatar }} style="border-radius: 50%;" /></td>
-            <td>
-                {{ article.author }}
-            </td>
-            <td>
-                <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
-            </td>
-            <td>{{ article.hit }}</td>
-            <td>{{ article.source }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form action="" method="Post">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-11">
+                <input class="form-control" name="restaurant_name" placeholder="請輸入餐廳名稱">
+            </div>
+            <div class="form-group col-1">
+                <input class="btn btn-dark" type="submit" value="查詢">
+            </div>
+        </div>
+    </form>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>作者</th>
+                <th>標題</th>
+                <th>點擊次數</th>
+                <th>來源網站</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+            <tr>
+                <td><img src={{ article.avatar }} style="border-radius: 50%;" /></td>
+                <td>
+                    {{ article.author }}
+                </td>
+                <td>
+                    <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+                </td>
+                <td>{{ article.hit }}</td>
+                <td>{{ article.source }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

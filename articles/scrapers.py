@@ -3,16 +3,18 @@ from bs4 import BeautifulSoup
 import requests
 
 
+# 網站抽象類別
 class Website(ABC):
 
     def __init__(self, restaurant_name):
-        self.restaurant_name = restaurant_name
+        self.restaurant_name = restaurant_name  # 餐廳名稱屬性
 
     @abstractmethod
-    def get_articles(self):
+    def get_articles(self):  # 取得食記抽象方法
         pass
 
 
+# 痞客邦網站
 class Pixnet(Website):
 
     # 取得餐廳食記
